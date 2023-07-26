@@ -6,7 +6,7 @@ app.use(express.json());
 //create and/or connect to a db
 
 const uri = "mongodb+srv://tempuser:123@cluster0.f9d6o.gcp.mongodb.net/Exams23002";
-mongoose.connect(uri, { useNewUrlParser: true }
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }
     );
     const connection = mongoose.connection;
     connection.once('open', () => {
@@ -44,11 +44,21 @@ const mylibrary = [
 
 Student.insertMany(mylibrary).then(function () {
     console.log("successfully created db");
-    res.json(mylibrary);
-    mongoose.connection.close();
+    const responseStrings = [
+        "Created a new one.",
+        "OK",
+      ];
+      res.json(responseStrings);
+    //res.json(mylibrary);
+    //mongoose.connection.close();
 }).catch(function (err) {
     console.log(err);
-    res.json(mylibrary);
+    const responseStrings = [
+        "Not created a new one.",
+        "error!.",
+      ];
+      res.json(responseStrings);
+//    res.json(mylibrary);
 });
 
 });
