@@ -44,9 +44,11 @@ const mylibrary = [
 
 Student.insertMany(mylibrary).then(function () {
     console.log("successfully created db");
+    res.json(mylibrary);
     mongoose.connection.close();
 }).catch(function (err) {
     console.log(err);
+    res.json(mylibrary);
 });
 
 });
