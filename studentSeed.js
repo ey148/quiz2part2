@@ -21,6 +21,9 @@ const studentSchema = new mongoose.Schema({
     collection: "examrecords" // Specify the collection name here
 });
 
+
+app.get('/', async (req, res)=>{
+
 // defining model
 const Student = mongoose.model("Student", studentSchema);
 //User has to be with capital first letter. mongo will make that small and pluralize
@@ -44,4 +47,6 @@ Student.insertMany(mylibrary).then(function () {
     mongoose.connection.close();
 }).catch(function (err) {
     console.log(err);
+});
+
 });
