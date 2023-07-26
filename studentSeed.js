@@ -42,11 +42,3 @@ Student.insertMany(mylibrary).then(function () {
 }).catch(function (err) {
     console.log(err);
 });
-
-Student.find().then((examrecords) => {
-    examrecords.forEach(function (student) {
-        console.log(student.name);
-    });
-
-    mongoose.connection.close();
-})
