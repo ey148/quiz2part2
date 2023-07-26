@@ -50,3 +50,6 @@ Student.insertMany(mylibrary).then(function () {
 });
 
 });
+
+
+app.listen(3000, () => console.log('User API listening on port 3000!'));
